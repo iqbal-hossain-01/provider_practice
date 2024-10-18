@@ -1,18 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:provider_practice/providers/theme_provider.dart';
+import 'package:provider_practice/screens/bottom_navi_bar.dart';
 import 'package:provider_practice/screens/counter_home_screen.dart';
+import 'package:provider_practice/screens/shared_pref_screen.dart';
+import 'package:provider_practice/screens/swipe_delete_app.dart';
 import 'package:provider_practice/screens/timer_screen.dart';
 import 'package:provider_practice/screens/todo_app.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const String routeName = '/';
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<ThemeProvider>(context, listen: false).loadTheme();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Provider Practice"),
         backgroundColor: Colors.blueGrey.withOpacity(0.2),
+        actions: [
+          Switch(value: themeProvider.isDarkTheme, onChanged: (value) {
+            themeProvider.toggleTheme();
+          })
+        ],
       ),
       body: GridView(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -91,9 +113,11 @@ class HomeScreen extends StatelessWidget {
                     "GO",
                     style: TextStyle(fontSize: 20),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, SharedPrefScreen.routeName);
+                  },
                 ),
-                const Text("Counter App"),
+                const Text("SharedPreferences"),
               ],
             ),
           ),
@@ -109,9 +133,11 @@ class HomeScreen extends StatelessWidget {
                     "GO",
                     style: TextStyle(fontSize: 20),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, BottomNaviBar.routeName);
+                  },
                 ),
-                const Text("Counter App"),
+                const Text("Bottom Navigation Bar", textAlign: TextAlign.center,),
               ],
             ),
           ),
@@ -127,9 +153,11 @@ class HomeScreen extends StatelessWidget {
                     "GO",
                     style: TextStyle(fontSize: 20),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, SwipeDeleteApp.routeName);
+                  },
                 ),
-                const Text("Counter App"),
+                const Text("Swipe To Delete"),
               ],
             ),
           ),
