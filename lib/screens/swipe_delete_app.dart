@@ -14,7 +14,6 @@ class _SwipeDeleteAppState extends State<SwipeDeleteApp> {
     10,
     (index) => 'Item ${index + 1}',
   );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -3,6 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:provider_practice/providers/theme_provider.dart';
 import 'package:provider_practice/screens/bottom_navi_bar.dart';
 import 'package:provider_practice/screens/counter_home_screen.dart';
+import 'package:provider_practice/screens/drawer_screen.dart';
+import 'package:provider_practice/screens/pull_to_refresh.dart';
+import 'package:provider_practice/screens/search_Delegate.dart';
 import 'package:provider_practice/screens/shared_pref_screen.dart';
 import 'package:provider_practice/screens/swipe_delete_app.dart';
 import 'package:provider_practice/screens/timer_screen.dart';
@@ -173,9 +176,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     "GO",
                     style: TextStyle(fontSize: 20),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, PullToRefresh.routeName);
+                  },
                 ),
-                const Text("Counter App"),
+                const Text("Pull To Refresh App"),
               ],
             ),
           ),
@@ -191,9 +196,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     "GO",
                     style: TextStyle(fontSize: 20),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, DrawerScreen.routeName);
+                  },
                 ),
-                const Text("Counter App"),
+                const Text("Drawer Menu App"),
               ],
             ),
           ),
@@ -209,9 +216,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     "GO",
                     style: TextStyle(fontSize: 20),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, SearchDelegateApp.routeName);
+                  },
                 ),
-                const Text("Counter App"),
+                const Text("Search Delegate App", textAlign: TextAlign.center,),
               ],
             ),
           ),

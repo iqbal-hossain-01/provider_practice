@@ -8,7 +8,10 @@ import 'package:provider_practice/providers/timer_provider.dart';
 import 'package:provider_practice/providers/todo_provider.dart';
 import 'package:provider_practice/screens/bottom_navi_bar.dart';
 import 'package:provider_practice/screens/counter_home_screen.dart';
+import 'package:provider_practice/screens/drawer_screen.dart';
 import 'package:provider_practice/screens/home_screen.dart';
+import 'package:provider_practice/screens/pull_to_refresh.dart';
+import 'package:provider_practice/screens/search_Delegate.dart';
 import 'package:provider_practice/screens/shared_pref_screen.dart';
 import 'package:provider_practice/screens/swipe_delete_app.dart';
 import 'package:provider_practice/screens/todo_app.dart';
@@ -50,6 +53,9 @@ class MyApp extends StatelessWidget {
         SharedPrefScreen.routeName : (context) => const SharedPrefScreen(),
         BottomNaviBar.routeName : (context) => const BottomNaviBar(),
         SwipeDeleteApp.routeName : (context) => const SwipeDeleteApp(),
+        PullToRefresh.routeName : (context) => const PullToRefresh(),
+        DrawerScreen.routeName : (context) => const DrawerScreen(),
+        SearchDelegateApp.routeName : (context) => const SearchDelegateApp(),
 
 
       },
