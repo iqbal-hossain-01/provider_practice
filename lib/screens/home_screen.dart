@@ -7,7 +7,9 @@ import 'package:provider_practice/screens/drawer_screen.dart';
 import 'package:provider_practice/screens/pull_to_refresh.dart';
 import 'package:provider_practice/screens/search_Delegate.dart';
 import 'package:provider_practice/screens/shared_pref_screen.dart';
+import 'package:provider_practice/screens/stop_watch.dart';
 import 'package:provider_practice/screens/swipe_delete_app.dart';
+import 'package:provider_practice/screens/timer_countdown.dart';
 import 'package:provider_practice/screens/timer_screen.dart';
 import 'package:provider_practice/screens/todo_app.dart';
 
@@ -236,9 +238,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     "GO",
                     style: TextStyle(fontSize: 20),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, TimerCountdown.routeName);
+                  },
                 ),
-                const Text("Counter App"),
+                const Text("Timer Countdown App", textAlign: TextAlign.center,),
               ],
             ),
           ),
@@ -254,9 +258,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     "GO",
                     style: TextStyle(fontSize: 20),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, StopWatch.routeName);
+                  },
                 ),
-                const Text("Counter App"),
+                const Text("Stopwatch App"),
               ],
             ),
           ),

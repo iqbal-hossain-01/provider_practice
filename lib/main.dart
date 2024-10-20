@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_practice/providers/bottom_nevi_provider.dart';
+import 'package:provider_practice/providers/countdown_provider.dart';
 import 'package:provider_practice/providers/counter_provider.dart';
 import 'package:provider_practice/providers/shared_pref_provider.dart';
+import 'package:provider_practice/providers/stopwatch_provider.dart';
 import 'package:provider_practice/providers/theme_provider.dart';
 import 'package:provider_practice/providers/timer_provider.dart';
 import 'package:provider_practice/providers/todo_provider.dart';
@@ -13,7 +15,9 @@ import 'package:provider_practice/screens/home_screen.dart';
 import 'package:provider_practice/screens/pull_to_refresh.dart';
 import 'package:provider_practice/screens/search_Delegate.dart';
 import 'package:provider_practice/screens/shared_pref_screen.dart';
+import 'package:provider_practice/screens/stop_watch.dart';
 import 'package:provider_practice/screens/swipe_delete_app.dart';
+import 'package:provider_practice/screens/timer_countdown.dart';
 import 'package:provider_practice/screens/todo_app.dart';
 
 import 'screens/timer_screen.dart';
@@ -28,6 +32,8 @@ void main() async {
       ChangeNotifierProvider(create: (context) => SharedPreferencesProvider(),),
       ChangeNotifierProvider(create: (context) => ThemeProvider(),),
       ChangeNotifierProvider(create: (context) => BottomNeviProvider(),),
+      ChangeNotifierProvider(create: (context) => CountdownProvider(),),
+      ChangeNotifierProvider(create: (context) => StopwatchProvider(),),
     ],
       child: const MyApp()));
 }
@@ -56,6 +62,8 @@ class MyApp extends StatelessWidget {
         PullToRefresh.routeName : (context) => const PullToRefresh(),
         DrawerScreen.routeName : (context) => const DrawerScreen(),
         SearchDelegateApp.routeName : (context) => const SearchDelegateApp(),
+        TimerCountdown.routeName : (context) => const TimerCountdown(),
+        StopWatch.routeName : (context) => const StopWatch(),
 
 
       },
